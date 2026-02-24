@@ -217,7 +217,7 @@ Add these hooks to `~/.claude/settings.json` to use the button as a Claude Code 
         "hooks": [
           {
             "type": "command",
-            "command": "curl -s -u admin:YOUR_PASSWORD --connect-timeout 1 --max-time 2 http://clickgit.local/led -d 'color=green&timeout=60000'",
+            "command": "curl -s -u admin:YOUR_PASSWORD --connect-timeout 1 --max-time 2 http://clickgit.local/led -d 'color=red&effect=pulse'",
             "timeout": 3
           }
         ]
@@ -233,8 +233,8 @@ Replace `YOUR_PASSWORD` with the password you set (or remove the `-u admin:YOUR_
 |---|---|---|
 | `PreToolUse` | Blue (spinning) | Claude is about to use a tool |
 | `PostToolUse` | Blue (spinning) | Claude finished a tool, likely doing more |
-| `Stop` | Green (60s) | Claude is done, waiting for your input |
-| `Notification` | Green (60s) | Claude needs your attention |
+| `Stop` | Green (60s) | Claude is done |
+| `Notification` | Red (pulsing) | Claude needs your input |
 
 Both `PreToolUse` and `PostToolUse` keep the button blue throughout chains of tool calls. The only gap is the initial thinking phase before the first tool call — there's no Claude Code hook for that yet.
 
